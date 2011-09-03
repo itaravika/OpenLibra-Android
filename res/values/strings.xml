@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OpenLibra - https://github.com/openlibra/OpenLibra -->
+<!-- Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com -->
+
+<!-- OpenLibra is free software; you can redistribute it and/or modify -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation; either version 3 of the License, or -->
+<!-- (at your option) any later version. -->
+
+<!-- OpenLibra is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with OpenLibra; if not, see http://www.gnu.org/licenses for more -->
+<!-- information. -->
+
+<resources>
+    <string name="app_name">OpenLibra</string>
+    <string name="ollistaVacia">No se han encontrado resultados...</string>
+    <string name="dialer">OpenLibra</string>
+    <string name="dialerDet">Obteniendo resultados...</string>
+</resources>

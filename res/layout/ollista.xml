@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OpenLibra - https://github.com/openlibra/OpenLibra -->
+<!-- Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com -->
+
+<!-- OpenLibra is free software; you can redistribute it and/or modify -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation; either version 3 of the License, or -->
+<!-- (at your option) any later version. -->
+
+<!-- OpenLibra is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with OpenLibra; if not, see http://www.gnu.org/licenses for more -->
+<!-- information. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout 
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/titulo"
+  	    android:orientation="vertical"
+  	    android:layout_gravity="center"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="6"
+	    android:background="#E2E2E2">	
+	    <ImageView 
+			android:id="@+id/tvtitulo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/titulo"/>
+	</LinearLayout>
+	<ListView
+		android:id="@+id/android:list"
+		android:layout_marginTop="2dip"
+        android:layout_below="@+id/titulo" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:drawSelectorOnTop="false"
+		android:background="#E2E2E2"/>
+</LinearLayout> 

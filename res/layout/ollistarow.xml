@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OpenLibra - https://github.com/openlibra/OpenLibra -->
+<!-- Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com -->
+
+<!-- OpenLibra is free software; you can redistribute it and/or modify -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation; either version 3 of the License, or -->
+<!-- (at your option) any later version. -->
+
+<!-- OpenLibra is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with OpenLibra; if not, see http://www.gnu.org/licenses for more -->
+<!-- information. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="2dip"
+		android:layout_marginLeft="2dip">
+	    <ImageView
+			android:id="@+id/iconLibro"
+        	android:layout_width="36dip"
+        	android:layout_height="36dip"
+        	android:background="@drawable/foldergrey"/>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="2dip">
+	    <ImageView
+			android:id="@+id/iconLang"
+        	android:layout_width="24dip"
+        	android:layout_height="24dip"
+        	android:background="@drawable/iconlangspa"/>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="2dip">
+		<TextView 
+	    	android:id="@+id/tituloLibro"
+	    	android:layout_height="wrap_content"
+	    	android:layout_width="wrap_content"
+	    	android:textColor="#000000"
+			android:width="250dip"
+	    	android:textSize="14sp"   	/>
+		<TextView 
+	    	android:id="@+id/autorLibro"
+	    	android:layout_height="wrap_content"
+	    	android:layout_width="wrap_content"
+	    	android:textColor="#5E5E5E"
+			android:width="150dip"
+	    	android:textSize="10sp"   	/>
+	</LinearLayout>
+</LinearLayout>
