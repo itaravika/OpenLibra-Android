@@ -18,31 +18,60 @@
 <!-- information. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
+	android:id="@+id/llopenlibra"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<LinearLayout 
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/titulo"
-  	    android:orientation="vertical"
-  	    android:layout_gravity="center"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:layout_weight="6"
-	    android:background="#E2E2E2">	
-	    <ImageView 
-			android:id="@+id/tvtitulo"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/titulo"/>
-	</LinearLayout>
-	<ListView
-		android:id="@+id/android:list"
-		android:layout_marginTop="2dip"
-        android:layout_below="@+id/titulo" 
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:layout_weight="1"
-		android:drawSelectorOnTop="false"
-		android:background="#E2E2E2"/>
-</LinearLayout> 
+	android:layout_height="fill_parent" 
+	android:orientation="vertical">
+	<com.thira.examples.actionbar.widget.ActionBar
+	        android:id="@+id/actionBar"
+	        android:layout_width="fill_parent"
+	        android:layout_height="45dip"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true" />
+			<LinearLayout
+				android:id="@+id/llist1"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent" 
+				android:layout_weight="5"
+				android:orientation="vertical">
+				<TextView
+					android:id="@+id/tvTop"
+		    		android:layout_width="fill_parent" 
+		    		android:layout_height="fill_parent"
+		    		android:layout_weight="6"
+		    		android:textSize="12sp"
+		        	android:gravity="center"
+		    		android:text="@string/tvtop"
+		    		android:background="#696969"/>
+				<Gallery xmlns:android="http://schemas.android.com/apk/res/android" 
+				    android:id="@+id/gallery"
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:layout_weight="1"
+				/>
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/llist2"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="3"
+				android:orientation="vertical">
+				<TextView
+					android:id="@+id/tvTop"
+		    		android:layout_width="fill_parent" 
+		    		android:layout_height="fill_parent"
+		    		android:layout_weight="10"
+		    		android:gravity="center"
+		    		android:textSize="12sp"
+		    		android:text="@string/tvbottom"
+		    		android:background="#696969"/>
+				<ListView
+					android:id="@+id/list2"
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:layout_weight="1"
+					android:drawSelectorOnTop="false"/>
+			</LinearLayout>
+</LinearLayout>
+
+

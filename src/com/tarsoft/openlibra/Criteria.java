@@ -24,6 +24,7 @@ public class Criteria {
 		Possible values ​​as a criterion for entry
 		
 			Field:
+					FieldNone = 99,
 				    FieldId = 0,
 					FieldTitle = 1,
 					FieldAuthor = 2,
@@ -35,6 +36,11 @@ public class Criteria {
 					FieldCategoryId = 8,
 					FieldSubcategory = 9,
 					FieldCriteria = 10
+					
+						most_viewed 
+    					most_commented 
+    					most_voted 
+    					high_scored 
 			Order:
 					OrderAsc = 0,
 					OrderDesc = 1,
@@ -46,32 +52,41 @@ public class Criteria {
 					SinceLastWeek = 2,
 					SinceLastMonth = 3,
 					SinceLastYear = 4,
+			CoverBitMap:
+			
+					NoBitMap = 0;
+					BitMap = 1;
+					
+			
 	*/
 	
-	private int codField=0;
+	private int codField=99;
 	private String valField="";
 	private int codOrder=0;
 	private int codSince=0;
 	private int valMaxItems=0;
+	private int codCoverBitMap=0;
 	
 	public Criteria(int codField, String valField, int codOrder, 
-					int codSince, int valMaxItems) {
+					int codSince, int valMaxItems, int codCoverBitMap) {
 		
 		this.codField = codField;
 		this.valField = valField;
 		this.codOrder = codOrder;
 		this.codSince = codSince;
 		this.valMaxItems = valMaxItems;
+		this.codCoverBitMap = codCoverBitMap;
 	}
 	
 	public Criteria(int codField, String valField, int codOrder, 
-					int codSince) {
+					int codSince, int codCoverBitMap) {
 		
 		this.codField = codField;
 		this.valField = valField;
 		this.codOrder = codOrder;
 		this.codSince = codSince;
 		this.valMaxItems = 10;
+		this.codCoverBitMap = codCoverBitMap;
 	}
  
 	public int getcodField() {
@@ -112,6 +127,14 @@ public class Criteria {
  
 	public void setvalMaxItems(int valMaxItems) {
 		this.valMaxItems = valMaxItems;
+	}
+	
+	public int getcodCoverBitMap() {
+		return codCoverBitMap;
+	}
+ 
+	public void codCoverBitMap(int codCoverBitMap) {
+		this.codCoverBitMap = codCoverBitMap;
 	}	
 	
 }

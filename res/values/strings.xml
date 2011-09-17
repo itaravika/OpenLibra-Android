@@ -22,4 +22,8 @@
     <string name="ollistaVacia">No se han encontrado resultados...</string>
     <string name="dialer">OpenLibra</string>
     <string name="dialerDet">Obteniendo resultados...</string>
+    <string name="dialerDetDownload">Descargando carátulas...</string>
+    <string name="NoInternet">Internet no disponible...</string>
+    <string name="tvtop">Últimos libros</string>
+    <string name="tvbottom">Libros más vistos</string>
 </resources>

@@ -18,7 +18,12 @@ along with OpenLibra; if not, see http://www.gnu.org/licenses for more
 information.
 */
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,17 +37,23 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 public class OpenLibraClient{
 	
+	private Criteria criteria;
+	
 	private String TAG = "OpenLibra";
 	
-	public List<Book> getBooks(Criteria criteria) throws JSONException{
+	public List<Book> getBooks(Criteria criteria) throws JSONException, MalformedURLException, IOException{
 		
-    	HttpClient httpClient = new DefaultHttpClient();  
+		this.criteria = criteria;
 		
-		String getURL = getURLOpenLibra(criteria);
+		HttpClient httpClient = new DefaultHttpClient();  
+		
+		String getURL = getURLOpenLibra();
 		
 		Log.v(TAG, "URL: " + getURL);
     	
@@ -65,14 +76,19 @@ public class OpenLibraClient{
     		Log.v(TAG, "Error: " + e.getMessage() + " - " + e.getLocalizedMessage());
     	} 
     	
-    	//Delete initial "(" and final ");"
-    	data = data.substring(1, data.length() - 2);
+    	if (data != null) {
+    		//Delete initial "(" and final ");"
+    		data = data.substring(1, data.length() - 2);
     	
-    	return parseData(data);
+    		return parseData(data); 
+    	} else {
+    		return null;
+    	}
+    		
 	}
 	
 	
-    public List<Book> parseData(String jsonData) throws JSONException {
+    public List<Book> parseData(String jsonData) throws JSONException, MalformedURLException, IOException {
 
     	//JSON with all data
     	JSONArray OLJson = new JSONArray(jsonData);
@@ -111,6 +127,14 @@ public class OpenLibraClient{
         		OLTags.add(tag);
         	}
         	
+        	//Process of Cover bitmap
+        	Bitmap OLCoverBitmap;
+        	if (criteria.getcodCoverBitMap() == 1) {
+        		OLCoverBitmap = drawableFromUrl(OLJson.getJSONObject(i).getString("cover"));
+        	} else {
+        		OLCoverBitmap = null;
+        	}
+        		
         	//Add data for new Book
             Book OLLibro = new Book(
             		OLJson.getJSONObject(i).getString("title"),
@@ -126,14 +150,15 @@ public class OpenLibraClient{
 					OLJson.getJSONObject(i).getString("rating"),
 					OLJson.getJSONObject(i).getString("num_comments"),
 					OLCategories,
-					OLTags
+					OLTags,
+					OLCoverBitmap
             		);
             OLLista.add(OLLibro);
         }
         return OLLista;
     }
 
-	public String getURLOpenLibra(Criteria criteria) {
+	public String getURLOpenLibra() {
 
     	String URL="http://openlibra.com/api/v1/get/?";
 
@@ -162,19 +187,32 @@ public class OpenLibraClient{
 			URL = URL + "criteria=" + criteria.getvalField();
 		}
 
-
-		//Add order
-		if (criteria.getcodOrder() == 0){
-			URL = URL + "&order=a_z";
-		} else if (criteria.getcodOrder() == 1){
-			URL = URL + "&order=z_a";
-		} else if (criteria.getcodOrder() == 2){
-			URL = URL + "&order=newest";
-		} else if (criteria.getcodOrder() == 3){
-			URL = URL + "&order=oldest";
+		//Add order depending on Field exits or not
+		if (criteria.getcodField() == 99){
+			//Add order
+			if (criteria.getcodOrder() == 0){
+				URL = URL + "order=a_z";
+			} else if (criteria.getcodOrder() == 1){
+				URL = URL + "order=z_a";
+			} else if (criteria.getcodOrder() == 2){
+				URL = URL + "order=newest";
+			} else if (criteria.getcodOrder() == 3){
+				URL = URL + "order=oldest";
+			}
+		} else {
+			//Add order
+			if (criteria.getcodOrder() == 0){
+				URL = URL + "&order=a_z";
+			} else if (criteria.getcodOrder() == 1){
+				URL = URL + "&order=z_a";
+			} else if (criteria.getcodOrder() == 2){
+				URL = URL + "&order=newest";
+			} else if (criteria.getcodOrder() == 3){
+				URL = URL + "&order=oldest";
+			}
 		}
 		
-		//Add data
+		//Add date
 		if (criteria.getcodSince() == 1){
 			URL = URL + "&since=today";
 		} else if (criteria.getcodSince() == 2){
@@ -189,5 +227,19 @@ public class OpenLibraClient{
 		URL = URL + "&num_items=" + Integer.toString(criteria.getvalMaxItems());
 		
         return URL;
-    }	
+    }
+	
+	//Return bitmap from url
+	private Bitmap drawableFromUrl(String url) throws java.net.MalformedURLException, java.io.IOException {
+	    Bitmap x;
+
+	    HttpURLConnection connection = (HttpURLConnection)new URL(url) .openConnection();
+	    connection.setRequestProperty("User-agent","Mozilla/4.0");
+
+	    connection.connect();
+	    InputStream input = connection.getInputStream();
+
+	    x = BitmapFactory.decodeStream(input);
+	    return x;
+	}
 }

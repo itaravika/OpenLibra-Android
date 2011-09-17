@@ -2,6 +2,8 @@ package com.tarsoft.openlibra;
 
 import java.util.List;
 
+import android.graphics.Bitmap;
+
 /*OpenLibra - https://github.com/openlibra/OpenLibra
 Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com
 
@@ -36,12 +38,13 @@ public class Book {
 	private String colNum_comments;	
 	private List<Categorie> colCategorie;
 	private List<Tag> colTag;
+	private Bitmap colCoverBitMap;
 
 	
 	public Book(String colTitle, String colAuthor, String colPublisher, String colPublisher_date,
 			String colPages, String colLanguage, String colUrl_details, String colUrl_download,
 			String colUrl_read_online, String colCover, String colRating, String colNum_comments,
-			List<Categorie> colCategorie, List<Tag> colTag) {
+			List<Categorie> colCategorie, List<Tag> colTag, Bitmap colCoverBitMap) {
 		
 		this.colTitle = colTitle;
 		this.colAuthor = colAuthor;
@@ -57,6 +60,7 @@ public class Book {
 		this.colNum_comments = colNum_comments;
 		this.colCategorie = colCategorie;
 		this.colTag = colTag;
+		this.colCoverBitMap = colCoverBitMap;
 	}
  
 	public String getcolTitle() {
@@ -169,6 +173,14 @@ public class Book {
  
 	public void setcolTag(List<Tag> colTag) {
 		this.colTag = colTag;
+	}
+	
+	public Bitmap getcolCoverBitMap() {
+		return colCoverBitMap;
+	}
+ 
+	public void setcolCoverBitMap(Bitmap colCoverBitMap) {
+		this.colCoverBitMap = colCoverBitMap;
 	}
 	
 }

@@ -35,20 +35,31 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 	
 	private List<Book> list;
 	
+	public ImageManager imageManager;
+	
 	private final String TAG = "OpenLibra";
 
 	public listaOLArrayAdapter(Activity context, List<Book> list) {
 		super(context, R.layout.ollistarow, list);		
 
 		this.context = context;
-		this.list = list;
+		this.list = list;		
+		
+		imageManager = 
+			new ImageManager(context.getApplicationContext());
 	}	
 	 
 	static class ViewHolder {
 		protected ImageView iconLibro;
-		protected ImageView iconLang;
 		protected TextView tituloLibro;
 		protected TextView autorLibro;
+		
+		protected ImageView iconLang;
+		protected ImageView iconStar1;
+		protected ImageView iconStar2;
+		protected ImageView iconStar3;
+		protected ImageView iconStar4;
+		protected ImageView iconStar5;
 	}
 	
 	@Override
@@ -65,10 +76,16 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 				final ViewHolder viewHolder = new ViewHolder();
 				
 				viewHolder.iconLibro = (ImageView) view.findViewById(R.id.iconLibro);
-				viewHolder.iconLang = (ImageView) view.findViewById(R.id.iconLang);
 				viewHolder.tituloLibro = (TextView) view.findViewById(R.id.tituloLibro);
 				viewHolder.autorLibro = (TextView) view.findViewById(R.id.autorLibro);
 
+				viewHolder.iconLang = (ImageView) view.findViewById(R.id.iconlang);
+				viewHolder.iconStar1 = (ImageView) view.findViewById(R.id.iconstar1);
+				viewHolder.iconStar2 = (ImageView) view.findViewById(R.id.iconstar2);
+				viewHolder.iconStar3 = (ImageView) view.findViewById(R.id.iconstar3);
+				viewHolder.iconStar4 = (ImageView) view.findViewById(R.id.iconstar4);
+				viewHolder.iconStar5 = (ImageView) view.findViewById(R.id.iconstar5);
+				
 				view.setTag(viewHolder);
 			} else {
 				view = convertView;
@@ -76,20 +93,66 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 			
 			ViewHolder holder = (ViewHolder) view.getTag();;
 			
-			holder.iconLibro.setBackgroundResource(R.drawable.foldergrey);
-			
-			//Get icon from language
-			if (list.get(position).getcolLanguage().equals("spanish")) {
-				holder.iconLang.setBackgroundResource(R.drawable.iconlangspa);
-			} else if (list.get(position).getcolLanguage().equals("english")) {
-				holder.iconLang.setBackgroundResource(R.drawable.iconlangeng);
-			} else {
-				holder.iconLang.setBackgroundResource(R.drawable.iconlibrodefecto);
-			}
+			//Icon from url
+			holder.iconLibro.setTag(list.get(position).getcolCover());
+			imageManager.displayImage(list.get(position).getcolCover(), context, holder.iconLibro);				
+		
+			//Icon from bitmap
+			//holder.iconLibro.setImageBitmap(list.get(position).getcolCoverBitMap());		
 			
 			//Author and book title
 			holder.tituloLibro.setText(list.get(position).getcolTitle());
 			holder.autorLibro.setText(list.get(position).getcolAuthor());
+			
+			//Language 
+			if (list.get(position).getcolLanguage().equals("spanish")){
+				holder.iconLang.setBackgroundResource(R.drawable.iconlangspa);
+			} else {
+				holder.iconLang.setBackgroundResource(R.drawable.iconlangeng);
+			}
+			
+			//Rating
+			
+			if (Float.parseFloat(list.get(position).getcolRating()) < 0.6) {
+				holder.iconStar1.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar2.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar3.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar4.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar5.setBackgroundResource(R.drawable.nostar);
+			} else 	if (Float.parseFloat(list.get(position).getcolRating()) >= 0.6 &&
+					Float.parseFloat(list.get(position).getcolRating()) < 1.6) {
+				holder.iconStar1.setBackgroundResource(R.drawable.star);
+				holder.iconStar2.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar3.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar4.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar5.setBackgroundResource(R.drawable.nostar);
+			} else 	if (Float.parseFloat(list.get(position).getcolRating()) >= 1.6 &&
+					Float.parseFloat(list.get(position).getcolRating()) < 2.6) {
+				holder.iconStar1.setBackgroundResource(R.drawable.star);
+				holder.iconStar2.setBackgroundResource(R.drawable.star);
+				holder.iconStar3.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar4.setBackgroundResource(R.drawable.nostar);
+			} else 	if (Float.parseFloat(list.get(position).getcolRating()) >= 2.6 &&
+					Float.parseFloat(list.get(position).getcolRating()) < 3.6) {
+				holder.iconStar1.setBackgroundResource(R.drawable.star);
+				holder.iconStar2.setBackgroundResource(R.drawable.star);
+				holder.iconStar3.setBackgroundResource(R.drawable.star);
+				holder.iconStar4.setBackgroundResource(R.drawable.nostar);
+				holder.iconStar5.setBackgroundResource(R.drawable.nostar);
+			} else 	if (Float.parseFloat(list.get(position).getcolRating()) >= 3.6 &&
+					Float.parseFloat(list.get(position).getcolRating()) < 4.6) {
+				holder.iconStar1.setBackgroundResource(R.drawable.star);
+				holder.iconStar2.setBackgroundResource(R.drawable.star);
+				holder.iconStar3.setBackgroundResource(R.drawable.star);
+				holder.iconStar4.setBackgroundResource(R.drawable.star);
+				holder.iconStar5.setBackgroundResource(R.drawable.nostar);
+			} else {
+				holder.iconStar1.setBackgroundResource(R.drawable.star);
+				holder.iconStar2.setBackgroundResource(R.drawable.star);
+				holder.iconStar3.setBackgroundResource(R.drawable.star);
+				holder.iconStar4.setBackgroundResource(R.drawable.star);
+				holder.iconStar5.setBackgroundResource(R.drawable.star);
+			}
 		
 		} catch (Exception e) { 
 			e.printStackTrace(); 

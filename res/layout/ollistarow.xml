@@ -20,48 +20,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   	android:orientation="horizontal"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="fill_parent"
+	android:background="#FFFFFF">
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:layout_gravity="center"
 		android:layout_marginTop="2dip"
 		android:layout_marginLeft="2dip">
 	    <ImageView
 			android:id="@+id/iconLibro"
-        	android:layout_width="36dip"
-        	android:layout_height="36dip"
-        	android:background="@drawable/foldergrey"/>
-	</LinearLayout>
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:layout_gravity="center"
-		android:layout_marginTop="2dip">
-	    <ImageView
-			android:id="@+id/iconLang"
-        	android:layout_width="24dip"
-        	android:layout_height="24dip"
-        	android:background="@drawable/iconlangspa"/>
+        	android:layout_width="64dip"
+        	android:layout_height="92dip"/>
 	</LinearLayout>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   		android:orientation="vertical"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginLeft="2dip">
+		android:layout_gravity="center"
+		android:layout_marginLeft="3dip">
 		<TextView 
 	    	android:id="@+id/tituloLibro"
 	    	android:layout_height="wrap_content"
 	    	android:layout_width="wrap_content"
 	    	android:textColor="#000000"
-			android:width="250dip"
-	    	android:textSize="14sp"   	/>
+	    	android:textSize="16sp"   	/>
 		<TextView 
 	    	android:id="@+id/autorLibro"
 	    	android:layout_height="wrap_content"
 	    	android:layout_width="wrap_content"
 	    	android:textColor="#5E5E5E"
-			android:width="150dip"
-	    	android:textSize="10sp"   	/>
+	    	android:textSize="12sp"   	/>
+	    <LinearLayout 
+  			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="6dip">
+		    <ImageView 
+				android:id="@+id/iconlang"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:background="@drawable/iconlangspa"/>
+	        <ImageView 
+				android:id="@+id/iconstar1"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:layout_marginLeft="6dip"
+	        	android:background="@drawable/star"/>
+	        <ImageView 
+				android:id="@+id/iconstar2"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:layout_marginLeft="2dip"
+	        	android:background="@drawable/star"/>
+	        <ImageView 
+				android:id="@+id/iconstar3"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:layout_marginLeft="2dip"
+	        	android:background="@drawable/star"/>
+	        <ImageView 
+				android:id="@+id/iconstar4"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:layout_marginLeft="2dip"
+	        	android:background="@drawable/star"/>
+	        <ImageView 
+				android:id="@+id/iconstar5"
+	        	android:layout_width="12dip"
+	        	android:layout_height="12dip"
+	        	android:layout_marginLeft="2dip"
+	        	android:background="@drawable/star"/>
+		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>
