@@ -34,6 +34,7 @@ public class Book {
 	private String colUrl_download;
 	private String colUrl_read_online;
 	private String colCover;
+	private String colThumbnail;
 	private String colRating;
 	private String colNum_comments;	
 	private List<Categorie> colCategorie;
@@ -43,7 +44,7 @@ public class Book {
 	
 	public Book(String colTitle, String colAuthor, String colPublisher, String colPublisher_date,
 			String colPages, String colLanguage, String colUrl_details, String colUrl_download,
-			String colUrl_read_online, String colCover, String colRating, String colNum_comments,
+			String colUrl_read_online, String colCover, String colThumbnail, String colRating, String colNum_comments,
 			List<Categorie> colCategorie, List<Tag> colTag, Bitmap colCoverBitMap) {
 		
 		this.colTitle = colTitle;
@@ -56,6 +57,7 @@ public class Book {
 		this.colUrl_download = colUrl_download;
 		this.colUrl_read_online = colUrl_read_online;
 		this.colCover = colCover;
+		this.colThumbnail = colThumbnail;
 		this.colRating = colRating;
 		this.colNum_comments = colNum_comments;
 		this.colCategorie = colCategorie;
@@ -141,6 +143,15 @@ public class Book {
  
 	public void setcolCover(String colCover) {
 		this.colCover = colCover;
+	}
+	
+	
+	public String getcolThumbnail() {
+		return colThumbnail;
+	}
+ 
+	public void setcolThumbnail(String colThumbnail) {
+		this.colThumbnail = colThumbnail;
 	}
 		
 	public String getcolRating() {

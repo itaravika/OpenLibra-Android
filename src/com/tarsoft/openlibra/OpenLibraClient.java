@@ -130,7 +130,7 @@ public class OpenLibraClient{
         	//Process of Cover bitmap
         	Bitmap OLCoverBitmap;
         	if (criteria.getcodCoverBitMap() == 1) {
-        		OLCoverBitmap = drawableFromUrl(OLJson.getJSONObject(i).getString("cover"));
+        		OLCoverBitmap = drawableFromUrl(OLJson.getJSONObject(i).getString("thumbnail"));
         	} else {
         		OLCoverBitmap = null;
         	}
@@ -147,6 +147,7 @@ public class OpenLibraClient{
             		OLJson.getJSONObject(i).getString("url_download"),
 					OLJson.getJSONObject(i).getString("url_read_online"),
             		OLJson.getJSONObject(i).getString("cover"),
+            		OLJson.getJSONObject(i).getString("thumbnail"),
 					OLJson.getJSONObject(i).getString("rating"),
 					OLJson.getJSONObject(i).getString("num_comments"),
 					OLCategories,

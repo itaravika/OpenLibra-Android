@@ -82,7 +82,7 @@ public class ollista extends Activity {
         mActionBar.setTitle(R.string.app_name);
         
         // set home icon that does nothing when the user clicks on it
-        mActionBar.setHomeLogo(R.drawable.ic_title_home_desactive);
+        mActionBar.setHomeLogo(R.drawable.icon);
         
         // sets an action icon that displays a Toast upon clicking
         mActionBar.addActionIcon(R.drawable.ic_search,
@@ -199,8 +199,7 @@ private class consultaOL extends AsyncTask<String, Void, List<BooksHome>> {
 		listaOLArrayAdapter adapterMost = new listaOLArrayAdapter(ollista.this,result.get(1).getcolBooks());
 		listerMost.setAdapter(adapterMost);
 		
-    	//finish progressDialog
-    	//pd.dismiss();
+    	//finish progressBar
 		mActionBar.hideProgressBar();
     }
     

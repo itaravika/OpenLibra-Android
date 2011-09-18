@@ -32,7 +32,7 @@ public final class R {
         public static final int ic_settings2=0x7f020005;
         public static final int ic_settings3=0x7f020006;
         public static final int ic_title_home_default=0x7f020007;
-        public static final int ic_title_home_desactive=0x7f020008;
+        public static final int ic_title_home_desact=0x7f020008;
         public static final int icon=0x7f020009;
         public static final int iconlangeng=0x7f02000a;
         public static final int iconlangspa=0x7f02000b;

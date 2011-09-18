@@ -94,8 +94,8 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 			ViewHolder holder = (ViewHolder) view.getTag();;
 			
 			//Icon from url
-			holder.iconLibro.setTag(list.get(position).getcolCover());
-			imageManager.displayImage(list.get(position).getcolCover(), context, holder.iconLibro);				
+			holder.iconLibro.setTag(list.get(position).getcolThumbnail());
+			imageManager.displayImage(list.get(position).getcolThumbnail(), context, holder.iconLibro);				
 		
 			//Icon from bitmap
 			//holder.iconLibro.setImageBitmap(list.get(position).getcolCoverBitMap());		
