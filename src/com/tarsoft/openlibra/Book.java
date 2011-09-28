@@ -1,9 +1,5 @@
 package com.tarsoft.openlibra;
 
-import java.util.List;
-
-import android.graphics.Bitmap;
-
 /*OpenLibra - https://github.com/openlibra/OpenLibra
 Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com
 
@@ -22,8 +18,13 @@ along with OpenLibra; if not, see http://www.gnu.org/licenses for more
 information.
 */
 
+import java.util.List;
+
+import android.graphics.Bitmap;
+
 public class Book {
-		
+	
+	private String colID;
 	private String colTitle;
 	private String colAuthor;
 	private String colPublisher;
@@ -42,11 +43,12 @@ public class Book {
 	private Bitmap colCoverBitMap;
 
 	
-	public Book(String colTitle, String colAuthor, String colPublisher, String colPublisher_date,
+	public Book(String colID, String colTitle, String colAuthor, String colPublisher, String colPublisher_date,
 			String colPages, String colLanguage, String colUrl_details, String colUrl_download,
 			String colUrl_read_online, String colCover, String colThumbnail, String colRating, String colNum_comments,
 			List<Categorie> colCategorie, List<Tag> colTag, Bitmap colCoverBitMap) {
 		
+		this.colID = colID;
 		this.colTitle = colTitle;
 		this.colAuthor = colAuthor;
 		this.colPublisher = colPublisher;
@@ -63,6 +65,14 @@ public class Book {
 		this.colCategorie = colCategorie;
 		this.colTag = colTag;
 		this.colCoverBitMap = colCoverBitMap;
+	}
+	
+	public String getcolID() {
+		return colID;
+	}
+ 
+	public void setcolID(String colID) {
+		this.colID = colID;
 	}
  
 	public String getcolTitle() {

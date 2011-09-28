@@ -36,6 +36,7 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 	private List<Book> list;
 	
 	public ImageManager imageManager;
+	DBOpenLibra DAO = null;
 	
 	private final String TAG = "OpenLibra";
 
@@ -47,6 +48,7 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 		
 		imageManager = 
 			new ImageManager(context.getApplicationContext());
+		DAO = new DBOpenLibra(context.getApplicationContext());
 	}	
 	 
 	static class ViewHolder {
@@ -93,13 +95,22 @@ public class listaOLArrayAdapter extends ArrayAdapter<Book> {
 			
 			ViewHolder holder = (ViewHolder) view.getTag();;
 			
-			//Icon from url
-			holder.iconLibro.setTag(list.get(position).getcolThumbnail());
-			imageManager.displayImage(list.get(position).getcolThumbnail(), context, holder.iconLibro);				
-		
-			//Icon from bitmap
-			//holder.iconLibro.setImageBitmap(list.get(position).getcolCoverBitMap());		
-			
+			//Icon
+			if (list.get(position).getcolCoverBitMap() == null) {
+				TableBook tb = DAO.selectBookReg(list.get(position).getcolID());
+				if (tb.getcolCoverBitMap() == null) {
+					//Icon from url
+					holder.iconLibro.setTag(list.get(position).getcolThumbnail());
+					imageManager.displayImage(list.get(position).getcolThumbnail(), context, holder.iconLibro);
+				} else {
+					//Icon from BBDD bitmap
+					holder.iconLibro.setImageBitmap(tb.getcolCoverBitMap());
+				}
+			} else {
+				//Icon from bitmap on BBDD
+				holder.iconLibro.setImageBitmap(list.get(position).getcolCoverBitMap());
+			}
+
 			//Author and book title
 			holder.tituloLibro.setText(list.get(position).getcolTitle());
 			holder.autorLibro.setText(list.get(position).getcolAuthor());

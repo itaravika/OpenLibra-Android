@@ -21,4 +21,72 @@
     <declare-styleable name="GalleryTheme">
     	<attr name="android:galleryItemBackground"/>
     </declare-styleable>
+    <string-array name="carruseltipo_value">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>3</item>
+   		<item>4</item>
+   		<item>5</item>   
+	</string-array>
+	<string-array name="carruseltipo_id">
+	   <item>Más vistos</item>
+	   <item>Más comentados</item>
+	   <item>Más votados</item>
+	   <item>Mejor puntuados</item>
+	   <item>Últimos añadidos</item>
+	</string-array>
+	
+	<string-array name="carruselnum_value">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>3</item>  
+	</string-array>
+	<string-array name="carruselnum_id">
+	   <item>5</item>
+	   <item>10</item>
+	   <item>20</item>
+	</string-array>
+	
+	<string-array name="listatipo_value">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>3</item>
+   		<item>4</item>
+   		<item>5</item>   
+	</string-array>
+	<string-array name="listatipo_id">
+	   <item>Más vistos</item>
+	   <item>Más comentados</item>
+	   <item>Más votados</item>
+	   <item>Mejor puntuados</item>
+	   <item>Últimos añadidos</item>
+	</string-array>
+	
+	<string-array name="listanum_value">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>3</item>  
+	</string-array>
+	<string-array name="listanum_id">
+	   <item>5</item>
+	   <item>10</item>
+	   <item>20</item>
+	</string-array>
+	
+	<string-array name="diasact_value">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>3</item>  
+   		<item>4</item>
+   		<item>5</item>
+   		<item>6</item>
+	</string-array>
+	<string-array name="diasact_id">
+   		<item>1</item>
+   		<item>2</item>
+   		<item>5</item>  
+   		<item>10</item>
+   		<item>20</item>
+   		<item>30</item>
+	</string-array>
 </resources>

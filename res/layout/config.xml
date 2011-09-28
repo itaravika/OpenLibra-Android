@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OpenLibra - https://github.com/openlibra/OpenLibra -->
+<!-- Copyright (C) 2011 David Rodríguez Alvarez (itaravika) itaravika@gmail.com -->
+
+<!-- OpenLibra is free software; you can redistribute it and/or modify -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation; either version 3 of the License, or -->
+<!-- (at your option) any later version. -->
+
+<!-- OpenLibra is distributed in the hope that it will be useful, -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the -->
+<!-- GNU General Public License for more details. -->
+
+<!-- You should have received a copy of the GNU General Public License -->
+<!-- along with OpenLibra; if not, see http://www.gnu.org/licenses for more -->
+<!-- information. -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" android:layout_width="fill_parent">
+   	<PreferenceCategory
+    	android:title="@string/pref_cat_carrusel"> 
+   		<ListPreference 
+        		android:id="@+id/spinnerCarruselTipo"
+        		android:entries="@array/carruseltipo_id"
+				android:entryValues="@array/carruseltipo_value" 
+        		android:title="@string/pref_carrusel_tipo"
+				android:summary="@string/pref_sum_carrusel_tipo"
+        		android:drawSelectorOnTop="true"
+				android:defaultValue="Últimos añadidos"
+        		android:key="carruselTipo"/>
+   		<ListPreference 
+        		android:id="@+id/spinnerCarruselNum"
+        		android:entries="@array/carruselnum_id"
+				android:entryValues="@array/carruselnum_value" 
+        		android:title="@string/pref_carrusel_num"
+				android:summary="@string/pref_sum_carrusel_num"
+        		android:drawSelectorOnTop="true"
+				android:defaultValue="5"
+        		android:key="carruselNum"/>
+	</PreferenceCategory>
+	<PreferenceCategory
+    	android:title="@string/pref_cat_lista"> 
+   		<ListPreference 
+        		android:id="@+id/spinnerListaTipo"
+        		android:entries="@array/listatipo_id"
+				android:entryValues="@array/listatipo_value" 
+        		android:title="@string/pref_lista_tipo"
+				android:summary="@string/pref_sum_lista_tipo"
+        		android:drawSelectorOnTop="true"
+				android:defaultValue="Más vistos"
+        		android:key="listaTipo"/>
+   		<ListPreference 
+        		android:id="@+id/spinnerListaNum"
+        		android:entries="@array/listanum_id"
+				android:entryValues="@array/listanum_value" 
+        		android:title="@string/pref_lista_num"
+				android:summary="@string/pref_sum_lista_num"
+        		android:drawSelectorOnTop="true"
+				android:defaultValue="10"
+        		android:key="listaNum"/>
+	</PreferenceCategory>
+    <PreferenceCategory
+    	android:title="@string/pref_cat_BBDD">
+    	<ListPreference 
+        		android:id="@+id/spinnerDiasAct"
+        		android:entries="@array/diasact_id"
+				android:entryValues="@array/diasact_value" 
+        		android:title="@string/pref_BBDD_dias"
+				android:summary="@string/pref_sum_BBDD_dias"
+        		android:drawSelectorOnTop="true"
+				android:defaultValue="1"
+        		android:key="diasAct"/>  
+	   	<Preference 
+	      		android:title="@string/pref_BBDD_borrar"
+	      		android:summary="@string/pref_sum_BBDD_borrar"
+				android:key="borrarBBDD"/>
+		<Preference 
+	      		android:title="@string/pref_BBDD_cargar"
+	      		android:summary="@string/pref_sum_BBDD_cargar"
+				android:key="cargarBBDD"/>
+    </PreferenceCategory>
+</PreferenceScreen>
+

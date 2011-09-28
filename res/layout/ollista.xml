@@ -25,7 +25,7 @@
 	<com.thira.examples.actionbar.widget.ActionBar
 	        android:id="@+id/actionBar"
 	        android:layout_width="fill_parent"
-	        android:layout_height="45dip"
+	        android:layout_height="35dip"
 	        android:layout_alignParentLeft="true"
 	        android:layout_alignParentTop="true" />
 			<LinearLayout

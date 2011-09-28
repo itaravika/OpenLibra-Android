@@ -19,6 +19,7 @@
 
 <resources>
     <string name="app_name">OpenLibra</string>
+    <string name="config">Configuración</string>
     <string name="ollistaVacia">No se han encontrado resultados...</string>
     <string name="dialer">OpenLibra</string>
     <string name="dialerDet">Obteniendo resultados...</string>
@@ -26,4 +27,21 @@
     <string name="NoInternet">Internet no disponible...</string>
     <string name="tvtop">Últimos libros</string>
     <string name="tvbottom">Libros más vistos</string>
+    <string name="pref_cat_BBDD">Base de Datos interna</string>
+    <string name="pref_BBDD_dias">Días para actualización de listas</string>
+    <string name="pref_sum_BBDD_dias">Periodo de días a partir de los cuales se actualizarán las listas desde la BBDD</string>
+    <string name="pref_BBDD_borrar">Limpiar BBDD</string>
+    <string name="pref_sum_BBDD_borrar">Limpiar todos los datos almacenados</string>
+    <string name="pref_BBDD_cargar">Carga inicial de la BBDD</string>
+    <string name="pref_sum_BBDD_cargar">Almacenar localmente todos los libros de OpenLibra (Sólo WIFI)</string>
+	<string name="pref_cat_carrusel">Carrusel de libros</string>
+	<string name="pref_carrusel_tipo">Tipo de lista</string>
+    <string name="pref_sum_carrusel_tipo">Tipo de lista a presentar</string>
+    <string name="pref_carrusel_num">Libros a presentar</string>
+    <string name="pref_sum_carrusel_num">Número de libros a presentar</string>
+    <string name="pref_cat_lista">Lista vertical de libros</string>
+	<string name="pref_lista_tipo">Tipo de lista</string>
+    <string name="pref_sum_lista_tipo">Tipo de lista a presentar</string>
+    <string name="pref_lista_num">Libros a presentar</string>
+    <string name="pref_sum_lista_num">Número de libros a presentar</string>
 </resources>

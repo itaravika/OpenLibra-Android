@@ -37,7 +37,8 @@ public class listaOLIconArrayAdapter extends BaseAdapter {
 	
 	private List<Book> list;
 	
-	//public ImageManager imageManager;
+	public ImageManager imageManager;
+	DBOpenLibra DAO = null;
 	
 	int OLItemBg;
 	
@@ -48,8 +49,10 @@ public class listaOLIconArrayAdapter extends BaseAdapter {
 		this.context = context;
 		this.list = list;		
 		
-		//imageManager = 
-		//	new ImageManager(context.getApplicationContext());
+        imageManager = 
+			new ImageManager(context.getApplicationContext());
+        //Create BBDD object
+        DAO = new DBOpenLibra(context.getApplicationContext());
 		
 		TypedArray typArray = context.obtainStyledAttributes(R.styleable.GalleryTheme);
 		OLItemBg = typArray.getResourceId(R.styleable.GalleryTheme_android_galleryItemBackground, 0);
@@ -72,18 +75,30 @@ public class listaOLIconArrayAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
 		ImageView imageView = new ImageView(context);
-
-		//imageManager.displayImage(list.get(position).getcolCover(), context, imageView);		
-	
-		//Icon from bitmap
-		imageView.setImageBitmap(list.get(position).getcolCoverBitMap());
-				
-        imageView.setLayoutParams(new Gallery.LayoutParams(135, 185));
-        //imageView.setLayoutParams(new Gallery.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+		
+		//Icon
+		if (list.get(position).getcolCoverBitMap() == null) {
+			TableBook tb = DAO.selectBookReg(list.get(position).getcolID());
+			if (tb.getcolCoverBitMap() == null) {
+				//Icon from url
+				imageView.setTag(list.get(position).getcolThumbnail());
+				imageManager.displayImage(list.get(position).getcolThumbnail(), context, imageView);
+			} else {
+				//Icon from BBDD bitmap
+				imageView.setImageBitmap(tb.getcolCoverBitMap());
+			}
+		} else {
+			//Icon from bitmap on BBDD
+			imageView.setImageBitmap(list.get(position).getcolCoverBitMap());
+		}
+			
+		//imageView.setLayoutParams(new Gallery.LayoutParams(165, 230));
+        //imageView.setLayoutParams(new Gallery.LayoutParams(145, 200));
+        imageView.setLayoutParams(new Gallery.LayoutParams(WRAP_CONTENT, FILL_PARENT));
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setBackgroundResource(OLItemBg);
                
         return imageView;	
-	}		
+	}
 }
 

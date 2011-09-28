@@ -137,6 +137,7 @@ public class OpenLibraClient{
         		
         	//Add data for new Book
             Book OLLibro = new Book(
+            		OLJson.getJSONObject(i).getString("ID"),
             		OLJson.getJSONObject(i).getString("title"),
             		OLJson.getJSONObject(i).getString("author"),
             		OLJson.getJSONObject(i).getString("publisher"),
